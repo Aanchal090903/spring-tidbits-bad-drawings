@@ -12,9 +12,6 @@ if ! command -v hugo &> /dev/null; then
   export PATH="/tmp:$PATH"
 fi
 
-echo "→ Updating submodules (Ananke theme)"
-git submodule update --init --recursive
-
 echo "→ Building site with Hugo"
 hugo --gc --minify
 
