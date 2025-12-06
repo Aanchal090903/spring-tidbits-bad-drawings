@@ -1,17 +1,21 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-# Install Hugo extended if not present (Vercel has it, but safe)
+echo "→ Installing Hugo extended 0.152.2 (Vercel already ships this, we just symlink)"
+# Vercel already has extended Hugo v0.152.2 in PATH for static-build
+# If not found, download portable binary (no sudo needed)
 if ! command -v hugo &> /dev/null; then
-  curl -sL https://github.com/gohugoio/hugo/releases/download/v0.152.2/hugo_extended_0.152.2_linux-amd64.tar.gz | tar -xz -C /tmp
-  sudo mv /tmp/hugo /usr/local/bin/hugo
+  echo "→ Hugo not found in PATH, downloading portable extended binary..."
+  curl -L https://github.com/gohugoio/hugo/releases/download/v0.152.2/hugo_extended_0.152.2_linux-amd64.tar.gz \
+    | tar -xz -C /tmp
+  chmod +x /tmp/hugo
+  export PATH="/tmp:$PATH"
 fi
 
-# Update submodules for Ananke theme
+echo "→ Updating submodules (Ananke theme)"
 git submodule update --init --recursive
 
-# Build the site
+echo "→ Building site with Hugo"
 hugo --gc --minify
 
-# Output success
-echo "Hugo build complete. Public dir ready."
+echo "→ Build complete! Public folder ready"
