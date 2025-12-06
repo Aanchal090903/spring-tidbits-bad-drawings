@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section style="text-align:center; padding: 4rem 1rem;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">
+        Spring Tidbits & Bad Drawings
+    </h1>
+    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem;">
+        Java, Spring Boot, DevOps, and bad stick-figure drawings explaining tech concepts 
+        so simple even your product manager will understand.
+    </p>
+
+    <a href="/posts" 
+       style="padding: 0.8rem 1.6rem; background:#0070f3; color:white; border-radius:8px; text-decoration:none; font-size:1.1rem;">
+       Read the Tidbits →
+    </a>
+</section>
+
+<section style="max-width:800px; margin:3rem auto;">
+    <h2>Latest Tidbits</h2>
+    <ul>
+      {{ range first 5 (where .Site.RegularPages "Type" "posts") }}
+        <li style="margin: 1rem 0;">
+          <a href="{{ .RelPermalink }}" style="font-size:1.2rem;">
+            {{ .Title }}
+          </a>
+          <br>
+          <small>{{ .Date.Format "Jan 2, 2006" }}</small>
+        </li>
+      {{ end }}
+    </ul>
+</section>
+{{ end }}
+
