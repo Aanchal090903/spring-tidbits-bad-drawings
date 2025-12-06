@@ -1,9 +1,11 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "Dockerfile",
-      "use": "@vercel/docker"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "public" }
     }
-  ]
+  ],
+  "installCommand": "npm install",  # Not needed, but harmless
+  "buildCommand": "hugo --gc --minify"
 }
