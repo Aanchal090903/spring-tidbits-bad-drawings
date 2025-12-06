@@ -1,1 +1,15 @@
-theme = "ananke"
+baseURL = '/'
+languageCode = 'en-us'
+title = 'Spring Tidbits & Bad Drawings'
+theme = 'ananke'
+
+[params]
+description = 'Random Java/Spring shit I learn + stick figures so I don\'t forget. Kinda want traction if it happens.'
+
+[markup]
+[markup.highlight]
+  style = 'github'
+
+[module]
+  [[module.imports]]
+    path = 'github.com/theNewDynamic/gohugo-theme-ananke'

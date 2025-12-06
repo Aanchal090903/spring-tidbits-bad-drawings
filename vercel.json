@@ -1,11 +1,13 @@
 {
   "builds": [
     {
-      "src": "package.json",
+      "src": "**",
       "use": "@vercel/static-build",
-      "config": { "distDir": "public" }
+      "config": {
+        "distDir": "public"
+      }
     }
   ],
-  "installCommand": "npm install",  # Not needed, but harmless
-  "buildCommand": "hugo --gc --minify"
+  "buildCommand": "hugo --gc --minify",
+  "installCommand": "echo 'No install needed for Hugo'"
 }
