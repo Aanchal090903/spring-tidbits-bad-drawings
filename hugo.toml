@@ -9,7 +9,3 @@ description = "Random Java/Spring shit I learn + stick figures so I don't forget
 [markup]
   [markup.highlight]
     style = 'github'
-
-[module]
-  [[module.imports]]
-    path = 'github.com/theNewDynamic/gohugo-theme-ananke'
