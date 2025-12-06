@@ -1,0 +1,11 @@
+{
+  "name": "spring-tidbits-bad-drawings",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "./build.sh",
+    "dev": "hugo server -D"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
