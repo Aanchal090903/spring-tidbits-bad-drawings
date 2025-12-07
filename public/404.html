@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title></title>
+    <title>Spring Tidbits &amp; Bad Drawings</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Random Java/Spring shit I learn &#43; stick figures so I don&#39;t forget. Kinda want traction if it happens.">
     <meta name="generator" content="Hugo 0.152.2">
     
     
@@ -38,13 +38,17 @@
     
     
     <meta property="og:url" content="//localhost:1313/404.html">
+  <meta property="og:site_name" content="Spring Tidbits & Bad Drawings">
   <meta property="og:title" content="404 Page not found">
-  <meta property="og:locale" content="en">
+  <meta property="og:description" content="Random Java/Spring shit I learn &#43; stick figures so I don&#39;t forget. Kinda want traction if it happens.">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="404 Page not found">
+  <meta itemprop="description" content="Random Java/Spring shit I learn &#43; stick figures so I don&#39;t forget. Kinda want traction if it happens.">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="404 Page not found">
+  <meta name="twitter:description" content="Random Java/Spring shit I learn &#43; stick figures so I don&#39;t forget. Kinda want traction if it happens.">
 
 	
   </head><body class="ma0 avenir bg-near-white development">
@@ -57,7 +61,7 @@
   <div class="flex-l center items-center justify-between">
     <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
       
-        
+        Spring Tidbits &amp; Bad Drawings
       
     </a>
     <div class="flex-l items-center">
@@ -83,15 +87,191 @@
     </article>
 
     </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="//localhost:1313/" >
-    &copy; 
-  </a>
-    <div><div class="ananke-socials"></div>
-</div>
+    <style>
+  .funky-footer {
+    background: #ffffff;
+    border-top: 4px solid #000000;
+    position: relative;
+    overflow: hidden;
+    margin-top: 4rem;
+  }
+  
+   
+  .funky-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      repeating-linear-gradient(
+        180deg,
+        transparent,
+        transparent 31px,
+        #e8e8e8 31px,
+        #e8e8e8 32px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+   
+  .funky-footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 60px;
+    width: 2px;
+    background: #FFB6C6;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem 2rem 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    font-family: 'Comic Neue', cursive;
+  }
+  
+  .footer-copyright {
+    font-size: 1rem;
+    color: #333333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+  }
+  
+  .footer-copyright::before {
+    content: '📝';
+    font-size: 1.2rem;
+  }
+  
+  .footer-copyright:hover {
+    color: #000000;
+    background: #FFFDE7;
+    transform: translateY(-2px);
+  }
+  
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+   
+  .footer-doodle {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.08;
+    width: 100px;
+    height: 40px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+   
+  .footer-tear {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      transparent 2%, 
+      #ffffff 2%, 
+      #ffffff 4%, 
+      transparent 4%, 
+      transparent 6%, 
+      #ffffff 6%, 
+      #ffffff 8%, 
+      transparent 8%
+    );
+    background-size: 40px 100%;
+    z-index: 3;
+  }
+  
+   
+  .footer-tape {
+    position: absolute;
+    bottom: 1rem;
+    right: 5%;
+    width: 60px;
+    height: 20px;
+    background: linear-gradient(135deg, 
+      rgba(255, 221, 87, 0.7) 0%, 
+      rgba(255, 221, 87, 0.85) 50%, 
+      rgba(255, 221, 87, 0.7) 100%);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: rotate(-15deg);
+    z-index: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .funky-footer::after {
+      left: 20px;
+    }
+    
+    .footer-content {
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 2rem 1rem 2rem 30px;
+      text-align: center;
+    }
+    
+    .footer-copyright {
+      font-size: 0.9rem;
+    }
+    
+    .footer-tape {
+      width: 50px;
+      height: 18px;
+      right: 10px;
+      bottom: 0.5rem;
+    }
+  }
+</style>
+
+<footer class="funky-footer" role="contentinfo">
+  <div class="footer-tear"></div>
+  
+  
+  <svg class="footer-doodle" viewBox="0 0 100 40">
+    <path d="M 10 20 Q 30 10, 50 20 T 90 20" fill="none" stroke="#000000" stroke-width="2"/>
+    <circle cx="25" cy="15" r="3" fill="#000000"/>
+    <circle cx="75" cy="15" r="3" fill="#000000"/>
+  </svg>
+  
+  
+  <div class="footer-tape"></div>
+  
+  <div class="footer-content">
+    <a class="footer-copyright" href="//localhost:1313/">
+      &copy;  Spring Tidbits & Bad Drawings 2025 
+    </a>
+    
+    <div class="footer-social">
+      <div class="ananke-socials"></div>
+
+    </div>
   </div>
 </footer>
-
   </body>
 </html>

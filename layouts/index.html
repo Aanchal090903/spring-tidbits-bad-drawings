@@ -1,32 +1,329 @@
 {{ define "main" }}
-<section style="text-align:center; padding: 4rem 1rem;">
-    <h1 style="font-size: 3rem; margin-bottom: 1rem;">
-        Spring Tidbits & Bad Drawings
-    </h1>
-    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem;">
-        Java, Spring Boot, DevOps, and bad stick-figure drawings explaining tech concepts 
-        so simple even your product manager will understand.
-    </p>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fira+Code:wght@400;600&display=swap');
+    
+    .funky-body {
+        font-family: 'Comic Neue', cursive;
+        background: #ffffff;
+        color: #000000;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+        margin: -2rem -1rem;
+        padding: 2rem 1rem 2rem 80px;
+    }
+    
+    /* Ruled lines background */
+    .funky-body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            repeating-linear-gradient(
+                180deg,
+                transparent,
+                transparent 31px,
+                #e8e8e8 31px,
+                #e8e8e8 32px
+            );
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    /* Red margin line */
+    .funky-body::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 76px;
+        width: 2px;
+        background: #FFB6C6;
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    .doodle {
+        position: absolute;
+        opacity: 0.08;
+        pointer-events: none;
+        animation: float 6s ease-in-out infinite;
+        z-index: 1;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
+    .doodle-1 {
+        top: 10%;
+        left: 15%;
+        width: 80px;
+        animation-delay: 0s;
+    }
+    
+    .doodle-2 {
+        top: 20%;
+        right: 10%;
+        width: 100px;
+        animation-delay: 1s;
+    }
+    
+    .doodle-3 {
+        bottom: 15%;
+        left: 25%;
+        width: 90px;
+        animation-delay: 2s;
+    }
+    
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem 2rem;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        margin-bottom: 2rem;
+        border: 4px solid #000000;
+        position: relative;
+        transform: rotate(-1deg);
+        transition: transform 0.3s ease;
+    }
+    
+    .hero:hover {
+        transform: rotate(0deg) scale(1.02);
+    }
+    
+    .hero::before {
+        content: '✎ᝰ.';
+        position: absolute;
+        top: -30px;
+        right: 20px;
+        font-size: 3rem;
+        animation: bounce 2s ease-in-out infinite;
+    }
+    
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        color: #000000;
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+    
+    .subtitle {
+        font-size: clamp(1rem, 3vw, 1.3rem);
+        color: #333333;
+        text-align: center;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+    
+    .highlight {
+        background: #FDD835;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+        color: #000000;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        background: #FDD835;
+        color: #000000;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 700;
+        border: 3px solid #000000;
+        box-shadow: 4px 4px 0 #000000;
+        transition: all 0.2s ease;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .cta-button:hover {
+        transform: translateX(-50%) translateY(-2px);
+        box-shadow: 6px 6px 0 #000000;
+        background: #FBC02D;
+    }
+    
+    .cta-button:active {
+        transform: translateX(-50%) translateY(2px);
+        box-shadow: 2px 2px 0 #000000;
+    }
+    
+    .posts-section {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        border: 4px solid #000000;
+        transform: rotate(1deg);
+    }
+    
+    .posts-section h2 {
+        font-size: 2rem;
+        color: #000000;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .posts-section h2::before {
+        content: '✏️';
+        font-size: 1.8rem;
+    }
+    
+    .posts-list {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .post-item {
+        background: #FFFDE7;
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+        border-radius: 12px;
+        border: 3px solid #000000;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .post-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        background: #FDD835;
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .post-item:hover {
+        transform: translateX(10px);
+        box-shadow: -4px 4px 0 #000000;
+        background: #FFF9C4;
+    }
+    
+    .post-item:hover::before {
+        transform: scaleY(1);
+    }
+    
+    .post-link {
+        color: #000000;
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 0.5rem;
+        font-family: 'Fira Code', monospace;
+    }
+    
+    .post-link:hover {
+        color: #F9A825;
+    }
+    
+    .post-date {
+        color: #666666;
+        font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+        .funky-body {
+            padding: 2rem 1rem 2rem 40px;
+        }
+        
+        .funky-body::after {
+            left: 30px;
+        }
+        
+        .hero {
+            padding: 2rem 1.5rem;
+        }
+        
+        .posts-section {
+            padding: 1.5rem;
+        }
+        
+        .doodle-1, .doodle-2, .doodle-3 {
+            opacity: 0.05;
+        }
+    }
+</style>
 
-    <a href="/posts" 
-       style="padding: 0.8rem 1.6rem; background:#0070f3; color:white; border-radius:8px; text-decoration:none; font-size:1.1rem;">
-       Read the Tidbits →
-    </a>
-</section>
+<div class="funky-body">
+    <svg class="doodle doodle-1" viewBox="0 0 100 100">
+        <circle cx="50" cy="30" r="20" fill="none" stroke="#000000" stroke-width="3"/>
+        <line x1="50" y1="50" x2="50" y2="80" stroke="#000000" stroke-width="3"/>
+        <line x1="50" y1="60" x2="30" y2="75" stroke="#000000" stroke-width="3"/>
+        <line x1="50" y1="60" x2="70" y2="75" stroke="#000000" stroke-width="3"/>
+        <line x1="50" y1="80" x2="35" y2="95" stroke="#000000" stroke-width="3"/>
+        <line x1="50" y1="80" x2="65" y2="95" stroke="#000000" stroke-width="3"/>
+    </svg>
+    
+    <svg class="doodle doodle-2" viewBox="0 0 100 100">
+        <path d="M 20 50 Q 50 20, 80 50 T 80 80" fill="none" stroke="#000000" stroke-width="3"/>
+        <circle cx="35" cy="45" r="5" fill="#000000"/>
+        <circle cx="65" cy="45" r="5" fill="#000000"/>
+    </svg>
+    
+    <svg class="doodle doodle-3" viewBox="0 0 100 100">
+        <rect x="20" y="30" width="60" height="40" fill="none" stroke="#000000" stroke-width="3" rx="5"/>
+        <line x1="35" y1="45" x2="65" y2="45" stroke="#000000" stroke-width="3"/>
+        <line x1="35" y1="55" x2="55" y2="55" stroke="#000000" stroke-width="3"/>
+    </svg>
 
-<section style="max-width:800px; margin:3rem auto;">
-    <h2>Latest Tidbits</h2>
-    <ul>
-      {{ range first 5 (where .Site.RegularPages "Type" "posts") }}
-        <li style="margin: 1rem 0;">
-          <a href="{{ .RelPermalink }}" style="font-size:1.2rem;">
-            {{ .Title }}
-          </a>
-          <br>
-          <small>{{ .Date.Format "Jan 2, 2006" }}</small>
-        </li>
-      {{ end }}
-    </ul>
-</section>
+    <div class="container">
+        <section class="hero">
+            <h1>This is about . . .</h1>
+            <p class="subtitle">
+                Java, Spring Boot, Sys Design, and <span class="highlight">hilariously bad stick-figure drawings</span> 
+                explaining tech concepts so simple even your product manager will understand.
+            </p>
+            <a href="/posts" class="cta-button">
+                Read the Tidbits →
+            </a>
+        </section>
+
+        <section class="posts-section">
+            <h2>Latest Tidbits</h2>
+            <ul class="posts-list">
+                {{ range first 5 (where .Site.RegularPages "Type" "posts") }}
+                <li class="post-item">
+                    <a href="{{ .RelPermalink }}" class="post-link">
+                        {{ .Title }}
+                    </a>
+                    <small class="post-date">{{ .Date.Format "Jan 2, 2006" }}</small>
+                </li>
+                {{ end }}
+            </ul>
+        </section>
+    </div>
+</div>
+
 {{ end }}
-

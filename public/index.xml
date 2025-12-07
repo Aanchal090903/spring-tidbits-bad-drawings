@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
+    <title>Spring Tidbits &amp; Bad Drawings</title>
     <link>//localhost:1313/</link>
-    <description>Recent content on </description>
+    <description>Recent content on Spring Tidbits &amp; Bad Drawings</description>
     <generator>Hugo</generator>
-    <language>en</language>
+    <language>en-us</language>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
