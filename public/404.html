@@ -78,7 +78,7 @@
   </header>
 
 
-    <main class="pb7" role="main">
+    <main role="main">
       
     <article class="center cf pv5 measure-wide-l">
       <h1>
@@ -90,31 +90,13 @@
     <style>
   .funky-footer {
     background: #ffffff;
-    border-top: 4px solid #000000;
+    border-top: 5px double #FFB6C6 ;
     position: relative;
     overflow: hidden;
     margin-top: 4rem;
   }
   
-   
-  .funky-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      repeating-linear-gradient(
-        180deg,
-        transparent,
-        transparent 31px,
-        #e8e8e8 31px,
-        #e8e8e8 32px
-      );
-    pointer-events: none;
-    z-index: 0;
-  }
+
   
    
   .funky-footer::after {
@@ -124,7 +106,7 @@
     bottom: 0;
     left: 60px;
     width: 2px;
-    background: #FFB6C6;
+    border-left: 5px double #FFB6C6;  
     pointer-events: none;
     z-index: 1;
   }

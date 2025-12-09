@@ -11,6 +11,7 @@
         overflow-x: hidden;
         margin: -2rem -1rem;
         padding: 2rem 1rem 2rem 80px;
+        overflow-x: hidden;
     }
     
     /* Ruled lines background */
@@ -33,18 +34,18 @@
         z-index: 0;
     }
     
-    /* Red margin line */
-    .funky-body::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 76px;
-        width: 2px;
-        background: #FFB6C6;
-        pointer-events: none;
-        z-index: 1;
-    }
+ /* Red margin line */
+.funky-body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 76px;
+    width: 2px;
+    border-left: 5px double #FFB6C6; /* Corrected property */
+    pointer-events: none;
+    z-index: 1;
+}
     
     .doodle {
         position: absolute;
