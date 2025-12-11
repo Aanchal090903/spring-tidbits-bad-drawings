@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="{{ .Site.Params.description | default .Site.Title }}">
+  <meta name="generator" content="Hugo {{ hugo.Version }}">
+  
+  {{- if .IsHome }}
+  <meta name="robots" content="index, follow">
+  {{- else }}
+  <meta name="robots" content="noindex, nofollow">
+  {{- end }}
+  
+  <link rel="stylesheet" href="/ananke/css/main.min.css" >
+  
+  {{- with .OutputFormats.Get "RSS" }}
+  <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+  <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+  {{- end }}
+  
+  {{- if not .IsHome }}
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{- end }}
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:title" content="{{ .Title }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}">
+  <meta property="og:description" content="{{ .Site.Params.description | default .Site.Title }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:locale" content="{{ .Site.LanguageCode | default "en_us" }}">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ .Title }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}">
+  <meta name="twitter:description" content="{{ .Site.Params.description | default .Site.Title }}">
+</head>
+<body>
+  {{ block "main" . }}
+  {{ end }}
+  
+  <!-- Vercel Web Analytics -->
+  <script type="module" src="/analytics.js"></script>
+</body>
+</html>
