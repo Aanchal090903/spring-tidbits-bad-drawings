@@ -12,7 +12,7 @@
       <link>//localhost:1313/posts/tidbit101/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/posts/tidbit101/</guid>
-      <description>&lt;h1 id=&#34;1-open-the-post-you-just-created-and-replace-everything&#34;&gt;1. Open the post you just created and replace everything&lt;/h1&gt;&#xA;&lt;h2 id=&#34;cat--contentpoststidbit101md--eof&#34;&gt;cat &amp;gt; content/posts/tidbit101.md &amp;laquo; &amp;lsquo;EOF&amp;rsquo;&lt;/h2&gt;&#xA;&lt;h2 id=&#34;draft-false&#34;&gt;title: &amp;ldquo;Tidbit #1: I deploy full infra + Docker + backups in 5 minutes and you still click buttons&amp;rdquo;&#xA;date: 2025-12-06T21:00:00+05:30&#xA;draft: false&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;It actually just takes 5 minutes to setup using my scripts&lt;br&gt;&#xA;(Terraform → Ansible → Docker → backups) :)&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;img src=&#34;deploy-chad.png&#34; alt=&#34;chad dev with terraform cape standing on crying manual deployers&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Moral: automate or stay poor.&lt;/p&gt;</description>
+      <description></description>
     </item>
   </channel>
 </rss>
