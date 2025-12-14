@@ -1,7 +1,9 @@
 {{ define "main" }}
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fira+Code:wght@400;600&display=swap');
-    
+    main {
+  padding: 0 ;
+}
     .funky-body {
         font-family: 'Comic Neue', cursive;
         background: #ffffff;
@@ -277,11 +279,72 @@
     }
 
     .grass {
-            width: 100%;
-            height: 50px;
-            background: linear-gradient(to bottom, #5cb85c 0%, #4a934a 100%);
-            border-top: 2px solid #6fc46f;
-        }
+    width: 100%;
+    height: 80px;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.1) 2px,
+            rgba(255, 255, 255, 0.1) 4px
+        ),
+        repeating-linear-gradient(
+            45deg,
+            #4a7c3a 0px,
+            #5d9447 10px,
+            #4a7c3a 20px,
+            #3d6b2e 30px
+        ),
+        linear-gradient(
+            to bottom,
+            #5d9447 0%,
+            #4a7c3a 50%,
+            #3d6b2e 100%
+        );
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        inset 0 10px 20px rgba(0, 0, 0, 0.2),
+        inset 0 -10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.grass::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-image: 
+        radial-gradient(ellipse 4px 20px at 10px 50%, #6fb85c 0%, transparent 100%),
+        radial-gradient(ellipse 3px 25px at 25px 45%, #5ca84a 0%, transparent 100%),
+        radial-gradient(ellipse 5px 18px at 40px 52%, #7dc46f 0%, transparent 100%),
+        radial-gradient(ellipse 4px 22px at 55px 48%, #5ca84a 0%, transparent 100%),
+        radial-gradient(ellipse 3px 20px at 70px 50%, #6fb85c 0%, transparent 100%),
+        radial-gradient(ellipse 5px 24px at 85px 46%, #7dc46f 0%, transparent 100%),
+        radial-gradient(ellipse 4px 19px at 100px 51%, #5ca84a 0%, transparent 100%);
+    background-size: 100px 60px;
+    background-repeat: repeat-x;
+}
+
+.grass::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            93deg,
+            transparent,
+            transparent 8px,
+            rgba(0, 0, 0, 0.05) 8px,
+            rgba(0, 0, 0, 0.05) 9px
+        );
+}
+   
 </style>
 
 <div class="funky-body">
@@ -333,7 +396,6 @@
         </section>
     </div>
 
-    <div class="grass"></div>
+    
 </div>
-
 {{ end }}
